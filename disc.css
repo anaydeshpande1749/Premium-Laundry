@@ -1,0 +1,119 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(45deg, #00b4d8, #0077b6);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+.services {
+    display:flex;
+    flex-direction: column;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+    align-items: center;
+}
+
+.service-card {
+    background-color: white;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card h2 {
+    font-size: 1.5rem;
+    color: #0077b6;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0077b6;
+    color: white;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .service-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+}
+
+.back-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 10%;
+    justify-content: left;
+    
+}
+
+.back-button:hover {
+    background-color: #333; /* Darker black on hover */
+}
+
+.back{
+    display: flex;
+    
+}
+
+body {
+  overflow-x: hidden;     /* No horizontal scroll */
+  overflow-y: auto;       /* Vertical scroll only when needed */
+  max-width: 100vw;       /* Ensure width doesn't exceed screen */
+}
+

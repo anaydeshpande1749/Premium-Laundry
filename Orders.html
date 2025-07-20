@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Laundry Services</title>
+    <script src="order.js"></script>
+    <link rel="stylesheet" href="Orders.css">
+
+    <!-- You can link an icon library such as FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <button class="back-button" style="width: 100px;" onclick="goHome()">←</button>
+        <h1>Premium Laundry Service</h1>
+        <p>Your clothes, our care!</p>
+    </header>
+
+    <div id="blur">
+        <div class="order-container">
+            <div class="service-icon">
+                <i class="fas fa-tshirt"></i>
+            </div>
+
+            <h2>Place Your Order</h2>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="price-filter">Filter by Price Range:</label>
+                    <select id="price-filter" onchange="filterVendors()">
+                        <option value="">All</option>
+                        <option value="low">Below ₹20</option>
+                        <option value="mid">Between ₹20 - ₹50</option>
+                        <option value="high">Above ₹50</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="rating-filter">Filter by Minimum Rating:</label>
+                    <select id="rating-filter" onchange="filterVendors()">
+                        <option value="">All</option>
+                        <option value="4">4 Stars & Above</option>
+                        <option value="3">3 Stars & Above</option>
+                        <option value="2">2 Stars & Above</option>
+                    </select>
+                </div>
+            </div>
+
+            <form id="order-form" action="javascript:void(0);">
+                <label for="vendor">Select Vendor:</label>
+                <select id="vendor" name="vendor" required>
+                    <option value="">-- Select a Vendor --</option>
+                    <option value="Spin N Press Laundry">Spin N Press Laundry</option>
+                    <option value="Tumbledry Laundry">Tumbledry Laundry</option>
+                    <option value="UClean Laundry">UClean Laundry</option>
+                    <option value="Feel & Shine">Feel & Shine</option>
+                    <option value="Abyad Laundry">Abyad Laundry</option>
+                    <option value="Star Laundry">Star Laundry</option>
+                    <!-- Dynamically populated vendors based on filters -->
+                </select>
+
+                <label for="service">Select Service:</label>
+                <select id="service" name="service" required>
+                    <option value="">-- Select a Service --</option>
+                    <option value="dry_cleaning">Dry Cleaning</option>
+                    <option value="steam_ironing">Steam Ironing</option>
+                    <option value="washing">Washing</option>
+                    <option value="stain_removal">Stain Removal</option>
+                </select>
+
+                <label for="quantity">Number of Items:</label>
+                <input type="number" id="quantity" name="quantity" placeholder="Enter number of items"  min="1" required>
+
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" placeholder="Enter your address" rows="4" required></textarea>
+
+                <label for="pickup-date">Pickup Date:</label>
+                <input type="date" id="pickup-date" name="pickup-date" required>
+
+                <!-- <button type="submit" id="submit-btn"><a style="text-decoration: none;color: white;" href="pay.html">Place Order</a></button> -->
+                 <button type="submit" id="submit-btn">Place Order</button>
+                
+
+
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = 'home.html'; // Redirect to home.html
+        }
+
+            document.getElementById('order-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Form validation
+            const vendor = document.getElementById('vendor').value;
+            const service = document.getElementById('service').value;
+            const quantity = document.getElementById('quantity').value;
+            const address = document.getElementById('address').value;
+            const date = document.getElementById('pickup-date').value;
+
+            if (vendor && service && quantity && address && date) {
+                // All fields filled — redirect to pay.html
+                window.location.href = 'pay.html';
+            } else {
+                alert('Please fill out all fields before placing the order.');
+            }
+        });
+
+    </script>
+</body>
+</html>

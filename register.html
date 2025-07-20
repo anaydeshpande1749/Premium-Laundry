@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration with Confirmation</title>
+    <style>
+        .form-container, .confirmation-container {
+            display: none; /* Forms are hidden initially */
+            margin-top: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body onload="hideAllForms()"> <!-- Add onload attribute to ensure forms are hidden initially -->
+    <header id="heronav">
+        <nav id="navigation">
+             <nav id="nav1">
+               <img id="ala" src="./images/Screenshot_2024-09-13_091847-removebg-preview.png" alt="logo">
+             </nav>
+             <nav id="nav2" style="float:right; display: flex;flex-direction: row;">
+                <a class="nav" href="home.html" data-page="home">Home</a>
+                <a class="nav" href="service.html" data-page="service">Service</a>
+                <a class="nav" href="register.html" data-page="register">Registration</a>
+                <a class="nav" href="Orders.html" data-page="orders">Orders</a>
+                <a class="nav" href="About.html" data-page="about">About Us</a>
+        
+              </nav>
+        </nav>
+</header>
+<main>
+<div id="register"> 
+    <div id="blur"></div>
+    <div id="container">
+        <div id="box">
+         <h2 style="font-size: medium; margin-top: 200px; margin-right: 60px; "></h2>
+         <h1 style="font-size: 60px; color: #c5bcb0; margin-left: 60px;">
+            
+           Register<!-- change-->
+           <span style="color: rgb(24, 2, 112);"></span>
+           <br>
+            <!-- change-->
+           <br>
+           <!--change-->
+         </h1>
+         <p style="font-size: 20px; margin-right: 60px;"></p><!--change-->
+         </div>
+        </div>
+    </div>
+    <div id="blur">
+    <div id="container2">
+     <div class="Ask">
+       <!-- Role Selection -->
+       <label for="role">Are you a:</label>
+       <select id="role" onchange="showForm()">
+           <option value="">Select</option>
+           <option value="user">User</option>
+           <option value="vendor">Vendor</option>
+       </select>
+   </div>
+    <!-- User Registration Form -->
+    <div id="user-form" class="form-container">
+        <h2>User Registration</h2>
+        <form id="user-registration-form" onsubmit="event.preventDefault(); previewUserDetails();">
+            <label for="user-name">Full Name:</label>
+            <input type="text" id="user-name" name="user-name" required><br><br>
+
+            <label for="user-email">Email:</label>
+            <input type="email" id="user-email" name="user-email" required><br><br>
+
+            <label for="user-phone">Phone Number:</label>
+            <input type="tel" id="user-phone" name="user-phone" required><br><br>
+
+            <label for="user-address">Address:</label>
+            <input type="text" id="user-address" name="user-address" required><br><br>
+
+            <label for="user-password">Password:</label>
+            <input type="password" id="user-password" name="user-password" required><br><br>
+
+            <button type="submit">Preview Details</button>
+        </form>
+    </div>
+
+    <!-- Vendor Registration Form -->
+    <div id="vendor-form" class="form-container">
+        <h2>Vendor Registration</h2>
+        <form id="vendor-registration-form" onsubmit="event.preventDefault(); previewVendorDetails();">
+            <label for="vendor-name">Vendor Name:</label>
+            <input type="text" id="vendor-name" name="vendor-name" required><br><br>
+
+            <label for="vendor-email">Email:</label>
+            <input type="email" id="vendor-email" name="vendor-email" required><br><br>
+
+            <label for="vendor-phone">Phone Number:</label>
+            <input type="tel" id="vendor-phone" name="vendor-phone" required><br><br>
+
+            <label for="vendor-address">Address:</label>
+            <input type="text" id="vendor-address" name="vendor-address" required><br><br>
+
+            <label for="vendor-services">Services Offered:</label>
+            <textarea id="vendor-services" name="vendor-services" required></textarea><br><br>
+
+            <label for="vendor-password">Password:</label>
+            <input type="password" id="vendor-password" name="vendor-password" required><br><br>
+
+            <button type="submit">Preview Details</button>
+        </form>
+            <div>
+                
+            </div>
+    </div>
+</div>
+
+    <!-- Confirmation Section -->
+    <div id="confirmation-container" class="confirmation-container">
+        <h2>Confirm Your Details</h2>
+        <div id="confirmation-details"></div>
+        <button onclick="confirmSubmission()">Confirm</button>
+        <button onclick="editDetails()">Edit</button>
+    </div>
+</div>
+
+<!-- <div class="log" >
+    Already Have an Account ? <a href="index.html"><span id="Log" style="text-decoration: none; color: black;">Login</span></a>
+</div> -->
+
+    <script>
+        // Function to hide all forms initially when the page loads
+        function hideAllForms() {
+            document.getElementById("user-form").style.display = "none";
+            document.getElementById("vendor-form").style.display = "none";
+            document.getElementById("confirmation-container").style.display = "none";
+        }
+
+        // Function to display the appropriate form based on the selected role
+        function showForm() {
+            var role = document.getElementById("role").value;
+            hideAllForms(); // Hide all forms first
+            
+            if (role === "user") {
+                document.getElementById("user-form").style.display = "block";
+            } else if (role === "vendor") {
+                document.getElementById("vendor-form").style.display = "block";
+            }
+        }
+
+        // Function to preview user details
+        function previewUserDetails() {
+            const name = document.getElementById("user-name").value;
+            const email = document.getElementById("user-email").value;
+            const phone = document.getElementById("user-phone").value;
+            const address = document.getElementById("user-address").value;
+            
+            // Display user details in the confirmation section
+            document.getElementById("confirmation-details").innerHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${address}</p>
+            `;
+            document.getElementById("user-form").style.display = "none";
+            document.getElementById("confirmation-container").style.display = "block";
+        }
+
+        // Function to preview vendor details
+        function previewVendorDetails() {
+            const name = document.getElementById("vendor-name").value;
+            const email = document.getElementById("vendor-email").value;
+            const phone = document.getElementById("vendor-phone").value;
+            const address = document.getElementById("vendor-address").value;
+            const services = document.getElementById("vendor-services").value;
+            
+            // Display vendor details in the confirmation section
+            document.getElementById("confirmation-details").innerHTML = `
+                <p><strong>Vendor Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Services Offered:</strong> ${services}</p>
+            `;
+            document.getElementById("vendor-form").style.display = "none";
+            document.getElementById("confirmation-container").style.display = "block";
+        }
+
+        // Function to confirm the submission (you can change this to submit the form)
+        function confirmSubmission() {
+            alert("Details confirmed and submitted!");
+            // Submit the form or handle it as needed
+        }
+
+        // Function to go back and edit the details
+        function editDetails() {
+            document.getElementById("confirmation-container").style.display = "none";
+            const role = document.getElementById("role").value;
+            if (role === "user") {
+                document.getElementById("user-form").style.display = "block";
+            } else if (role === "vendor") {
+                document.getElementById("vendor-form").style.display = "block";
+            }
+        }
+    </script>
+</main>
+<footer>
+    
+    <div id="Services" class="mlo">
+      
+      <div id="slot1" class="slot">
+        <div id="logocontainer">
+        <img id="logosmall" src="./images/logo small.jpg" alt="" height="70px" width="70px"
+        style="margin: 20px; border-radius: 30px;">
+        <img id="name" src="./images/namelogo.png" alt="" height="50px" width="200px"
+        style="margin: 30px;">
+      </div>
+      <p style="text-align: center;">OUR MOTTO "Effortless Laundry, Exceptional Care"</p>
+      </div>
+
+      
+      <!-- <div id="slot2" class="slot">
+        <h2>Our Services</h2>
+        <li>Dry Cleaning</li>
+        <li>Premium Laundry
+        <li>Steam Ironing</li>
+        <li>Steam Ironing</li>
+      </div> -->
+      <div id="slot2" class="slot">
+        <h2>Contact us</h2>
+        <li>Mahalaxmi East, Shop No. 1, Ground Floor, Sapphire Tower, Maulana Azad Road, 400011, Near Saat Rasta, Jacob Circle, Mumbai,, India</li>
+
+          <li>+91 9999759911</li>
+          <li>support@premiumlaundry.in</li>
+      </div>
+      <div id="slot4" class="slot">
+        <h2 >Follow us</h2>
+       <a href="https://www.instagram.com"><img src="./images/icons8-instagram-48.png" alt="insta"></a> 
+       <a href="https://www.facebook.com"><img src="./images/icons8-facebook-50.png" alt="face"></a>
+       <a href="https://twitter.com/X?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img src="./images/icons8-x-50.png" alt="threads"></a>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+  <!-- <div id="link"></div> -->
+  <p id="copyright">&copy; 2024 Premium Laundry Service. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll(".nav");
+        const currentPage = window.location.pathname.split("/").pop(); // Get the current page
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active"); // Add 'active' class to the current page link
+            }
+        });
+});
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    background: rgb(255, 255, 255);
+    
+}
+
+/* Align the Ask section */
+.Ask h1{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.Ask label, #role {
+    font-size: 20px;
+    margin: 10px;
+    width: 8%;
+}
+
+/* Style the forms */
+.form-container {
+    background-color: rgb(190, 237, 241);
+    padding: 40px;
+    border-radius: 8px;
+    width: 50%;
+    margin: 20px auto;
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Style form headings */
+#user-form h2, #vendor-form h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+ 
+}
+
+/* Form Inputs */
+input, textarea, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+select{
+    width: 10%;
+    background-color:rgb(190, 237, 241) ;
+    border: solid 2px rgb(190, 237, 241) ;
+    border-radius: 30px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    margin-top: 20px;
+}
+
+.mlo{
+    margin-top: 100px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#heronav {
+    position: fixed;
+    width: 100%;
+    background-color: gray;
+}
+#ala{
+    height: 65px;
+    width: auto;
+    float: left;
+}
+
+#navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+}
+
+.logo {
+    height: 50px;
+    margin: 8px;
+    border-radius: 20px;
+}
+
+#nav2 {
+    display: flex;
+}
+
+.nav {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    margin: 5px;
+    padding: 7px;
+    background-color: gray;
+    align-self: center;
+
+}
+
+.nav:hover {
+    color: skyblue;
+    transition: 0.1s ease;
+}
+
+.nav.active {
+    color: skyblue; /* Active link color */
+    font-weight: bold; /* Optional: make it bold */
+    background-color: black;
+    border-radius: 50%;
+    padding: 15px;
+}
+#link{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+#Services{
+   height: 300px;
+   width: 100%;
+   background-color: skyblue;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
+.slot{
+   margin: 20px;
+   background-color: none;
+   height: 308px;
+   width: 400px;
+   background-color: none;
+   border-radius:40px ;
+   border:solid none;
+   
+}
+#logocontainer{
+   margin: 10px;
+   background-color:skyblue;
+   border-radius: 40px;
+   display: flex;
+   flex-direction: row;
+}
+
+#slot2{
+h2{
+   text-size-adjust: large;
+}
+margin: 20px;
+text-align: left;
+line-height: 30px;
+
+}
+/*Main*/
+#container{
+    height: 400px;
+    width: auto;
+    background-image:url(images/charlesdeluvio-n7Cq2rdd73E-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+#box{
+    height: 400px;
+    width: 30%;
+    background-color: none;
+    float: right;
+}
+
+}
+#container2{
+    height: 850px;
+    width: auto;
+    background-color: #F0F8FF;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#register{
+    background-image: url(images/charlesdeluvio-n7Cq2rdd73E-unsplash.jpg);
+}
+#copyright{
+    background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: static;
+            width: 100%;
+            bottom: 0;
+}
+
+#box.h1
+{
+    font-size: 60px;
+    color: #c5bcb0;
+    margin-left: 60px;
+}
+
+.log{
+    text-align: center;
+    padding: 30px;
+    font-size: 30px;
+}
+#Log{
+    border: 2px solid skyblue;
+    padding: 5px;
+    border-radius: 45%;
+    color: rgb(8, 8, 163);
+    background-color: skyblue;
+}
+
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    .Ask label, #role {
+        width: 100%;
+    }
+}
+
+
+body {
+  overflow-x: hidden;     /* No horizontal scroll */
+  overflow-y: auto;       /* Vertical scroll only when needed */
+  max-width: 100vw;       /* Ensure width doesn't exceed screen */
+}
+
